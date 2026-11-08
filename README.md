@@ -37,7 +37,9 @@ The agents do not rely on generic knowledge. They read:
 
 - [`AGENTS.md`](AGENTS.md) — the house rules every agent obeys.
 - [`knowledge/angular/`](knowledge/angular) — how we use signals, state, micro-frontends and testing, with the reasons.
-- [`knowledge/domain/`](knowledge/domain) — domain rules that are easy to get wrong (e.g. order validation in trading journeys).
+- [`knowledge/domain/`](knowledge/domain) — optional **domain packs**: rules that are easy to get wrong in a given industry. The first pack is [finance orders](knowledge/domain/finance-orders.md) (buy and sell journeys for equities and ETFs).
+
+Everything here is project-agnostic. Rules that belong to one project — its app names, ports, helpers — live in that project's own `AGENTS.md`, which wins over the factory's. [angular-lab's `AGENTS.md`](https://github.com/Horizon-Code/angular-lab/blob/main/AGENTS.md) is a worked example.
 
 Knowledge is plain Markdown on purpose: reviewable in a PR, diffable, and readable by people as well as models.
 
@@ -51,7 +53,7 @@ npx degit Horizon-Code/angular-agent-factory .factory
 .factory/scripts/install.sh
 ```
 
-`install.sh` copies the agents into `.claude/agents/`, and `AGENTS.md`, `knowledge/` and `templates/` into `.factory/`, so your repo keeps a pinned, reviewable copy.
+`install.sh` copies the agents into `.claude/agents/`, and `AGENTS.md`, `knowledge/` and `templates/` into `.factory/`, so your repo keeps a pinned, reviewable copy. Then add your project's own rules to your root `AGENTS.md`.
 
 ## Principles
 
