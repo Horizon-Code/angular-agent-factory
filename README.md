@@ -29,7 +29,7 @@ flowchart BT
 |---|---|---|---|
 | 0 · Standards | [`AGENTS.md`](AGENTS.md) as the contract every agent reads; skills in the open Agent Skills format; tools over MCP. Works in Claude Code, Codex, Cursor or Antigravity. | Open standards | `AGENTS.md` in place; skills format and MCP wiring in progress |
 | 1 · Process | Four roles with one job each, gates and hand-offs: [`WORKFLOW.md`](WORKFLOW.md). | Own, informed by Spec Kit and spec-driven practice | v0.1 |
-| 2 · Modern Angular | The official [Angular agent skills](https://angular.dev/ai/agent-skills) and the Angular CLI MCP server (`ng mcp`). Installed, not duplicated. | Angular team | Being evaluated in the lab |
+| 2 · Modern Angular | The official [Angular agent skills](https://angular.dev/ai/agent-skills) and the Angular CLI MCP server (`ng mcp`). Installed by `install.sh`, not duplicated; `AGENTS.md` keeps only house deltas. | Angular team | Adopted ([spike](https://github.com/Horizon-Code/angular-lab/blob/main/docs/spikes/2026-11-factory-layers.md)) |
 | 3 · Enterprise Angular | Architecture as an executable contract: boundary rules loaded on demand, [Sheriff](https://github.com/softarc-consulting/sheriff) in lint, stop hooks that run the checks when an agent finishes. | [Angular Architects](https://www.angulararchitects.io/) (Steyer, Thalhammer), credited | Planned |
 | 4 · Hierarchical micro-frontends | A skill the implementer and reviewer receive when a task touches federation (one runtime shared through DI, a manifest per level, `./routes` only, fail-soft loading), plus sensors: boundaries per level, a smoke test that boots all three levels, shared-version checks. Boundary rules start from [`lucamezzalira/mfe-skills`](https://github.com/lucamezzalira/mfe-skills) (MIT). | Built here | Knowledge in [`knowledge/angular/micro-frontends.md`](knowledge/angular/micro-frontends.md); skill and sensors in progress |
 | 5 · Agentic UI | A skill for bringing agents into Angular apps: AG-UI events, A2UI, human-in-the-loop interrupts before any irreversible action, a trusted BFF in front of the agent. | Built here | Arrives with the lab's first agentic flow |
@@ -86,6 +86,7 @@ npx degit Horizon-Code/angular-agent-factory .factory
 ### Decisions worth reading
 
 - **No industry packs in the factory.** Domain rules (e.g. finance orders) moved to the project that needs them. A reusable tool should not ship one project's business rules; the factory stays Angular-only and works for any domain.
+- **House rules are deltas, not a copy of Angular's guide.** The lab spike showed the factory's "OnPush on every component" was already outdated for Angular 22, where OnPush is the default. Generic guidance now comes from the official skill and `ng mcp`, which follow each version; `AGENTS.md` keeps only what is ours.
 - **Adopt, then specialise.** Generic Angular guidance comes from the Angular team's own skills and enterprise architecture from Angular Architects. The factory's own work is layers 4 and 5, where nothing equivalent is published for Angular.
 
 ## Status
